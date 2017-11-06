@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="answerRecorder:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="answerRecorder-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="answerRecorder:war exploded" />
+    </root>
+  </artifact>
+</component>

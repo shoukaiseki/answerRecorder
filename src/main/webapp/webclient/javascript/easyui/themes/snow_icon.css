@@ -1,0 +1,15 @@
+.snow-first {
+  background: url('images/pagination_icons.png') no-repeat 0 center;
+}
+.snow-prev {
+  background: url('images/pagination_icons.png') no-repeat -16px center;
+}
+.snow-next {
+  background: url('images/pagination_icons.png') no-repeat -32px center;
+}
+.snow-last {
+  background: url('images/pagination_icons.png') no-repeat -48px center;
+}
+.snow-load {
+  background: url('images/pagination_icons.png') no-repeat -64px center;
+}
