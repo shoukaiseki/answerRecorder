@@ -30,8 +30,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <br>
   <a href="mobileversion/list" target="_blank">/mobileversion/list</a>
   <br>
+  <h1>city</h1>
+  <a href="city/list" target="_blank">/city/list</a>
   <%--<a href="webclient/answerrecorder/index.jsp" target="_blank">/webclient/answerrecorder/index.jsp</a>--%>
-  <br>
+  <h1>答案记录器</h1>
   <a href="springanswerrecorder" target="_blank">答案记录器</a>
   <br>
   <a href="springanswerrecorder/cleartopic/" target="_blank">清空答案记录器内容</a>
