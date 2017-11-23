@@ -1,0 +1,14 @@
+--创建数据库
+ CREATE DATABASE answer;
+--切换用户
+ USE answer; 
+
+--新建表
+
+CREATE TABLE issue(
+	`ID` varchar(36) CHARACTER SET utf8mb4 NOT NULL DEFAULT '0' COMMENT '主键', 
+      	question VARCHAR(1000)  COMMENT '问题',
+       	Options  VARCHAR(2000) COMMENT '问题选项',
+       	answer  VARCHAR(2000) COMMENT '问题答案',
+	createdate DATE COMMENT '创建时间'
+); 
