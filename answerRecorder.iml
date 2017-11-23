@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="AutoImportedSourceRoots">
+    <option name="directories">
+      <list>
+        <option value="E:\github\answerRecorder/src/main/java" />
+        <option value="E:\github\answerRecorder/src/test/java" />
+      </list>
+    </option>
+  </component>
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
@@ -25,10 +33,9 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+      <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
-          <option name="jvmTarget" value="1.8" />
           <option name="languageVersion" value="1.1" />
           <option name="apiVersion" value="1.1" />
           <option name="pluginOptions">

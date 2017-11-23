@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/test/spring/city/bean/CityController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -772,12 +772,12 @@
       <workItem from="1510579806807" duration="493000" />
       <workItem from="1511434260707" duration="7881000" />
       <workItem from="1511456306411" duration="3586000" />
-      <workItem from="1511462179430" duration="73000" />
+      <workItem from="1511462179430" duration="618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124691000" />
+    <option name="totallyTimeSpent" value="125236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -1212,7 +1212,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/test/spring/city/bean/CityController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
           <folding />
         </state>
       </provider>
