@@ -1,0 +1,10 @@
+test\soap\TestAOPServiceImp.class
+test\spring\HelloWorldController.class
+test\spring\AppConfig.class
+test\spring\city\bean\CityController.class
+test\spring\answerrecorder\AnswerRecorderController.class
+test\spring\city\dao\CityDao.class
+test\spring\CodeLineStackTrace.class
+test\spring\answerrecorder\Topic.class
+test\spring\WebConfig.class
+test\soap\TestAOPService.class
