@@ -19,5 +19,7 @@ public interface CityDao {
     //回去映射文件中通过com.hua.saf.dao.UserDao.getUser,即this.getClass().getName()+".getUser
 
     public List<City> getList();
+
+    public List<City> getselectByCountry_id(Short country_id);
 }
 

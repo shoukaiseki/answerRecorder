@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.spring.country.dao.CountryDao">
+  <resultMap id="BaseResultMap" type="test.spring.country.model.Country">
+    <id column="country_id" jdbcType="SMALLINT" property="country_id" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="last_update" />
+	 <association property="cityList" column="country_id"                       
+            select="test.spring.country.dao.CityDao.selectByCountry_id" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country, last_update
+  </sql>
+  
+    <select id="getList" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from sakila.country;
+    </select>
+	
+	
+    <select id="getRandomList" resultMap="BaseResultMap">
+		SELECT 
+		t1.*
+		FROM sakila.country AS t1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(country_id) FROM sakila.country)-(SELECT MIN(country_id) FROM sakila.country))+(SELECT MIN(country_id) FROM sakila.country)) AS country_id) AS t2 WHERE t1.country_id >= t2.country_id ORDER BY t1.country_id LIMIT 50
+
+    </select>
+</mapper>

@@ -33,6 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h1>city</h1>
   <a href="city/list" target="_blank">/city/list</a>
   <%--<a href="webclient/answerrecorder/index.jsp" target="_blank">/webclient/answerrecorder/index.jsp</a>--%>
+  <h1>country</h1>
+  <a href="country/list" target="_blank">国家记录列表</a>
+  <br>
+  <a href="country/randomlist" target="_blank">国家随机50条记录列表</a>
+
   <h1>答案记录器</h1>
   <a href="springanswerrecorder" target="_blank">答案记录器</a>
   <br>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.sakila.CountryMapper">
+  <resultMap id="BaseResultMap" type="model.sakila.Country">
+    <id column="country_id" jdbcType="SMALLINT" property="country_id" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="last_update" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country, last_update
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sakila..country
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from sakila..country
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="model.sakila.Country">
+    insert into sakila..country (country_id, country, last_update
+      )
+    values (#{country_id,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{last_update,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.sakila.Country">
+    insert into sakila..country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="country_id != null">
+        country_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="last_update != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="country_id != null">
+        #{country_id,jdbcType=SMALLINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="last_update != null">
+        #{last_update,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.Country">
+    update sakila..country
+    <set>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="last_update != null">
+        last_update = #{last_update,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.sakila.Country">
+    update sakila..country
+    set country = #{country,jdbcType=VARCHAR},
+      last_update = #{last_update,jdbcType=TIMESTAMP}
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.sakila.Country">
+    <id column="country_id" jdbcType="SMALLINT" property="country_id" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="last_update" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country, last_update
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sakila..country
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from sakila..country
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="model.sakila.Country">
+    insert into sakila..country (country_id, country, last_update
+      )
+    values (#{country_id,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{last_update,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.sakila.Country">
+    insert into sakila..country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="country_id != null">
+        country_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="last_update != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="country_id != null">
+        #{country_id,jdbcType=SMALLINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="last_update != null">
+        #{last_update,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.Country">
+    update sakila..country
+    <set>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="last_update != null">
+        last_update = #{last_update,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.sakila.Country">
+    update sakila..country
+    set country = #{country,jdbcType=VARCHAR},
+      last_update = #{last_update,jdbcType=TIMESTAMP}
+    where country_id = #{country_id,jdbcType=SMALLINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.sakila.Country">
+    <id column="country_id" jdbcType="SMALLINT" property="countryId" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country, last_update
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sakila..country
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from sakila..country
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="model.sakila.Country">
+    insert into sakila..country (country_id, country, last_update
+      )
+    values (#{countryId,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.sakila.Country">
+    insert into sakila..country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        #{countryId,jdbcType=SMALLINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.Country">
+    update sakila..country
+    <set>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdate != null">
+        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.sakila.Country">
+    update sakila..country
+    set country = #{country,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.sakila.Country">
+    <id column="country_id" jdbcType="SMALLINT" property="countryId" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    country_id, country, last_update
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sakila..country
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from sakila..country
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="model.sakila.Country">
+    insert into sakila..country (country_id, country, last_update
+      )
+    values (#{countryId,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.sakila.Country">
+    insert into sakila..country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        #{countryId,jdbcType=SMALLINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.Country">
+    update sakila..country
+    <set>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdate != null">
+        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.sakila.Country">
+    update sakila..country
+    set country = #{country,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where country_id = #{countryId,jdbcType=SMALLINT}
+  </update>
+</mapper>
