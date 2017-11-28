@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.answer.IssueoptionMapper">
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.Issueoption">
+    <result column="issueoptionid" jdbcType="VARCHAR" property="issueoptionid" />
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="OPTION" jdbcType="VARCHAR" property="OPTION" />
+    <result column="Optiondescription" jdbcType="VARCHAR" property="optiondescription" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.Issueoption">
+    insert into answer..issueoption (issueoptionid, issueid, OPTION, 
+      Optiondescription, createdate, createby
+      )
+    values (#{issueoptionid,jdbcType=VARCHAR}, #{issueid,jdbcType=VARCHAR}, #{OPTION,jdbcType=VARCHAR}, 
+      #{optiondescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{createby,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.Issueoption">
+    insert into answer..issueoption
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="issueoptionid != null">
+        issueoptionid,
+      </if>
+      <if test="issueid != null">
+        issueid,
+      </if>
+      <if test="OPTION != null">
+        OPTION,
+      </if>
+      <if test="optiondescription != null">
+        Optiondescription,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="issueoptionid != null">
+        #{issueoptionid,jdbcType=VARCHAR},
+      </if>
+      <if test="issueid != null">
+        #{issueid,jdbcType=VARCHAR},
+      </if>
+      <if test="OPTION != null">
+        #{OPTION,jdbcType=VARCHAR},
+      </if>
+      <if test="optiondescription != null">
+        #{optiondescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.answer.Issueoption">
+    <result column="issueoptionid" jdbcType="VARCHAR" property="issueoptionid" />
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="OPTION" jdbcType="VARCHAR" property="OPTION" />
+    <result column="Optiondescription" jdbcType="VARCHAR" property="optiondescription" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.answer.Issueoption">
+    insert into answer..issueoption (issueoptionid, issueid, OPTION, 
+      Optiondescription, createdate, createby
+      )
+    values (#{issueoptionid,jdbcType=VARCHAR}, #{issueid,jdbcType=VARCHAR}, #{OPTION,jdbcType=VARCHAR}, 
+      #{optiondescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{createby,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.answer.Issueoption">
+    insert into answer..issueoption
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="issueoptionid != null">
+        issueoptionid,
+      </if>
+      <if test="issueid != null">
+        issueid,
+      </if>
+      <if test="OPTION != null">
+        OPTION,
+      </if>
+      <if test="optiondescription != null">
+        Optiondescription,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="issueoptionid != null">
+        #{issueoptionid,jdbcType=VARCHAR},
+      </if>
+      <if test="issueid != null">
+        #{issueid,jdbcType=VARCHAR},
+      </if>
+      <if test="OPTION != null">
+        #{OPTION,jdbcType=VARCHAR},
+      </if>
+      <if test="optiondescription != null">
+        #{optiondescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,6 +1,6 @@
 package dao.sakila;
 
-import model.sakila.Country;
+import org.shoukaiseki.answerrecorder.model.Country;
 
 public interface CountryMapper {
     int deleteByPrimaryKey(Short country_id);

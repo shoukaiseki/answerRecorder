@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.answer.ChapterMapper">
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.Chapter">
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="trainingname" jdbcType="VARCHAR" property="trainingname" />
+    <result column="coursetitle" jdbcType="VARCHAR" property="coursetitle" />
+    <result column="chaptername" jdbcType="VARCHAR" property="chaptername" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.Chapter">
+    insert into answer..chapter (chapterid, trainingname, coursetitle, 
+      chaptername, createdate, createby
+      )
+    values (#{chapterid,jdbcType=VARCHAR}, #{trainingname,jdbcType=VARCHAR}, #{coursetitle,jdbcType=VARCHAR}, 
+      #{chaptername,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{createby,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.Chapter">
+    insert into answer..chapter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chapterid != null">
+        chapterid,
+      </if>
+      <if test="trainingname != null">
+        trainingname,
+      </if>
+      <if test="coursetitle != null">
+        coursetitle,
+      </if>
+      <if test="chaptername != null">
+        chaptername,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chapterid != null">
+        #{chapterid,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingname != null">
+        #{trainingname,jdbcType=VARCHAR},
+      </if>
+      <if test="coursetitle != null">
+        #{coursetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chaptername != null">
+        #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.answer.Chapter">
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="trainingname" jdbcType="VARCHAR" property="trainingname" />
+    <result column="coursetitle" jdbcType="VARCHAR" property="coursetitle" />
+    <result column="chaptername" jdbcType="VARCHAR" property="chaptername" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.answer.Chapter">
+    insert into answer..chapter (chapterid, trainingname, coursetitle, 
+      chaptername, createdate, createby
+      )
+    values (#{chapterid,jdbcType=VARCHAR}, #{trainingname,jdbcType=VARCHAR}, #{coursetitle,jdbcType=VARCHAR}, 
+      #{chaptername,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{createby,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.answer.Chapter">
+    insert into answer..chapter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chapterid != null">
+        chapterid,
+      </if>
+      <if test="trainingname != null">
+        trainingname,
+      </if>
+      <if test="coursetitle != null">
+        coursetitle,
+      </if>
+      <if test="chaptername != null">
+        chaptername,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chapterid != null">
+        #{chapterid,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingname != null">
+        #{trainingname,jdbcType=VARCHAR},
+      </if>
+      <if test="coursetitle != null">
+        #{coursetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chaptername != null">
+        #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

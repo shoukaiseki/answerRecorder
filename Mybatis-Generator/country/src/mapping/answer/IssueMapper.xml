@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.answer.IssueMapper">
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.Issue">
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="question" jdbcType="VARCHAR" property="question" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="answerdescription" jdbcType="VARCHAR" property="answerdescription" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.Issue">
+    insert into answer..issue (issueid, chapterid, question, 
+      answer, answerdescription, createdate, 
+      createby)
+    values (#{issueid,jdbcType=VARCHAR}, #{chapterid,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{answerdescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, 
+      #{createby,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.Issue">
+    insert into answer..issue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="issueid != null">
+        issueid,
+      </if>
+      <if test="chapterid != null">
+        chapterid,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="answerdescription != null">
+        answerdescription,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="issueid != null">
+        #{issueid,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterid != null">
+        #{chapterid,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="answerdescription != null">
+        #{answerdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.answer.Issue">
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="question" jdbcType="VARCHAR" property="question" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="answerdescription" jdbcType="VARCHAR" property="answerdescription" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.answer.Issue">
+    insert into answer..issue (issueid, chapterid, question, 
+      answer, answerdescription, createdate, 
+      createby)
+    values (#{issueid,jdbcType=VARCHAR}, #{chapterid,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{answerdescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, 
+      #{createby,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.answer.Issue">
+    insert into answer..issue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="issueid != null">
+        issueid,
+      </if>
+      <if test="chapterid != null">
+        chapterid,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="answerdescription != null">
+        answerdescription,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="issueid != null">
+        #{issueid,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterid != null">
+        #{chapterid,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="answerdescription != null">
+        #{answerdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

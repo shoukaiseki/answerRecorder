@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.sakila.CityMapper">
-  <resultMap id="BaseResultMap" type="model.sakila.City">
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.City">
     <id column="city_id" jdbcType="SMALLINT" property="city_id" />
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="country_id" jdbcType="SMALLINT" property="country_id" />
@@ -20,13 +20,13 @@
     delete from sakila..city
     where city_id = #{city_id,jdbcType=SMALLINT}
   </delete>
-  <insert id="insert" parameterType="model.sakila.City">
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.City">
     insert into sakila..city (city_id, city, country_id, 
       last_update)
     values (#{city_id,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{country_id,jdbcType=SMALLINT}, 
       #{last_update,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="model.sakila.City">
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.City">
     insert into sakila..city
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="city_id != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.City">
+  <update id="updateByPrimaryKeySelective" parameterType="org.shoukaiseki.answerrecorder.model.City">
     update sakila..city
     <set>
       <if test="city != null">
@@ -72,18 +72,18 @@
     </set>
     where city_id = #{city_id,jdbcType=SMALLINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="model.sakila.City">
+  <update id="updateByPrimaryKey" parameterType="org.shoukaiseki.answerrecorder.model.City">
     update sakila..city
     set city = #{city,jdbcType=VARCHAR},
       country_id = #{country_id,jdbcType=SMALLINT},
       last_update = #{last_update,jdbcType=TIMESTAMP}
     where city_id = #{city_id,jdbcType=SMALLINT}
   </update>
-  <resultMap id="BaseResultMap" type="model.sakila.City">
-    <id column="city_id" jdbcType="SMALLINT" property="cityId" />
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.model.sakila.City">
+    <id column="city_id" jdbcType="SMALLINT" property="city_id" />
     <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="country_id" jdbcType="SMALLINT" property="countryId" />
-    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+    <result column="country_id" jdbcType="SMALLINT" property="country_id" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="last_update" />
   </resultMap>
   <sql id="Base_Column_List">
     city_id, city, country_id, last_update
@@ -92,225 +92,69 @@
     select 
     <include refid="Base_Column_List" />
     from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
+    where city_id = #{city_id,jdbcType=SMALLINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
+    where city_id = #{city_id,jdbcType=SMALLINT}
   </delete>
-  <insert id="insert" parameterType="model.sakila.City">
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.model.sakila.City">
     insert into sakila..city (city_id, city, country_id, 
       last_update)
-    values (#{cityId,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{countryId,jdbcType=SMALLINT}, 
-      #{lastUpdate,jdbcType=TIMESTAMP})
+    values (#{city_id,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{country_id,jdbcType=SMALLINT}, 
+      #{last_update,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="model.sakila.City">
+  <insert id="insertSelective" parameterType="org.shoukaiseki.answerrecorder.model.sakila.City">
     insert into sakila..city
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
+      <if test="city_id != null">
         city_id,
       </if>
       <if test="city != null">
         city,
       </if>
-      <if test="countryId != null">
+      <if test="country_id != null">
         country_id,
       </if>
-      <if test="lastUpdate != null">
+      <if test="last_update != null">
         last_update,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
-        #{cityId,jdbcType=SMALLINT},
+      <if test="city_id != null">
+        #{city_id,jdbcType=SMALLINT},
       </if>
       <if test="city != null">
         #{city,jdbcType=VARCHAR},
       </if>
-      <if test="countryId != null">
-        #{countryId,jdbcType=SMALLINT},
+      <if test="country_id != null">
+        #{country_id,jdbcType=SMALLINT},
       </if>
-      <if test="lastUpdate != null">
-        #{lastUpdate,jdbcType=TIMESTAMP},
+      <if test="last_update != null">
+        #{last_update,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.City">
+  <update id="updateByPrimaryKeySelective" parameterType="org.shoukaiseki.answerrecorder.model.sakila.City">
     update sakila..city
     <set>
       <if test="city != null">
         city = #{city,jdbcType=VARCHAR},
       </if>
-      <if test="countryId != null">
-        country_id = #{countryId,jdbcType=SMALLINT},
+      <if test="country_id != null">
+        country_id = #{country_id,jdbcType=SMALLINT},
       </if>
-      <if test="lastUpdate != null">
-        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="model.sakila.City">
-    update sakila..city
-    set city = #{city,jdbcType=VARCHAR},
-      country_id = #{countryId,jdbcType=SMALLINT},
-      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </update>
-  <resultMap id="BaseResultMap" type="model.sakila.City">
-    <id column="city_id" jdbcType="SMALLINT" property="cityId" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="country_id" jdbcType="SMALLINT" property="countryId" />
-    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    city_id, city, country_id, last_update
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
-    delete from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </delete>
-  <insert id="insert" parameterType="model.sakila.City">
-    insert into sakila..city (city_id, city, country_id, 
-      last_update)
-    values (#{cityId,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{countryId,jdbcType=SMALLINT}, 
-      #{lastUpdate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="model.sakila.City">
-    insert into sakila..city
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
-        city_id,
-      </if>
-      <if test="city != null">
-        city,
-      </if>
-      <if test="countryId != null">
-        country_id,
-      </if>
-      <if test="lastUpdate != null">
-        last_update,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
-        #{cityId,jdbcType=SMALLINT},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="countryId != null">
-        #{countryId,jdbcType=SMALLINT},
-      </if>
-      <if test="lastUpdate != null">
-        #{lastUpdate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.City">
-    update sakila..city
-    <set>
-      <if test="city != null">
-        city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="countryId != null">
-        country_id = #{countryId,jdbcType=SMALLINT},
-      </if>
-      <if test="lastUpdate != null">
-        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
+      <if test="last_update != null">
+        last_update = #{last_update,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where city_id = #{cityId,jdbcType=SMALLINT}
+    where city_id = #{city_id,jdbcType=SMALLINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="model.sakila.City">
+  <update id="updateByPrimaryKey" parameterType="org.shoukaiseki.answerrecorder.model.sakila.City">
     update sakila..city
     set city = #{city,jdbcType=VARCHAR},
-      country_id = #{countryId,jdbcType=SMALLINT},
-      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </update>
-  <resultMap id="BaseResultMap" type="model.sakila.City">
-    <id column="city_id" jdbcType="SMALLINT" property="cityId" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="country_id" jdbcType="SMALLINT" property="countryId" />
-    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    city_id, city, country_id, last_update
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
-    delete from sakila..city
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </delete>
-  <insert id="insert" parameterType="model.sakila.City">
-    insert into sakila..city (city_id, city, country_id, 
-      last_update)
-    values (#{cityId,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{countryId,jdbcType=SMALLINT}, 
-      #{lastUpdate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="model.sakila.City">
-    insert into sakila..city
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
-        city_id,
-      </if>
-      <if test="city != null">
-        city,
-      </if>
-      <if test="countryId != null">
-        country_id,
-      </if>
-      <if test="lastUpdate != null">
-        last_update,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cityId != null">
-        #{cityId,jdbcType=SMALLINT},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="countryId != null">
-        #{countryId,jdbcType=SMALLINT},
-      </if>
-      <if test="lastUpdate != null">
-        #{lastUpdate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="model.sakila.City">
-    update sakila..city
-    <set>
-      <if test="city != null">
-        city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="countryId != null">
-        country_id = #{countryId,jdbcType=SMALLINT},
-      </if>
-      <if test="lastUpdate != null">
-        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where city_id = #{cityId,jdbcType=SMALLINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="model.sakila.City">
-    update sakila..city
-    set city = #{city,jdbcType=VARCHAR},
-      country_id = #{countryId,jdbcType=SMALLINT},
-      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
-    where city_id = #{cityId,jdbcType=SMALLINT}
+      country_id = #{country_id,jdbcType=SMALLINT},
+      last_update = #{last_update,jdbcType=TIMESTAMP}
+    where city_id = #{city_id,jdbcType=SMALLINT}
   </update>
 </mapper>

@@ -42,7 +42,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="springanswerrecorder" target="_blank">答案记录器</a>
   <br>
   <a href="springanswerrecorder/cleartopic/" target="_blank">清空答案记录器内容</a>
-
+  <h2>新版</h2>
+  <a href="chapter/list" target="_blank">章节列表</a>
+	<br>
+  <a href="chapter/add/0" target="_blank">章节添加</a>
+  <!--
+  <a href="issue/list" target="_blank">章节列表</a>
+	<br>
+  <a href="issue/add" target="_blank">章节添加</a>
+  -->
   <br>
 	<br>
     Hello World <br>

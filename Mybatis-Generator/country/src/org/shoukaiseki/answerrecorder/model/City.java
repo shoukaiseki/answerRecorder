@@ -1,4 +1,4 @@
-package model.sakila;
+package org.shoukaiseki.answerrecorder.model;
 
 import java.util.Date;
 

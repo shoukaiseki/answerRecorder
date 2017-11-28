@@ -26,8 +26,8 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="model" targetProject="src">
-            <property name="enableSubPackages" value="true"/>
+        <javaModelGenerator targetPackage="org.shoukaiseki.answerrecorder.model" targetProject="src">
+            <property name="enableSubPackages" value="false"/>
 		<!--
 -->
             <property name="trimStrings" value="true"/>
@@ -58,6 +58,29 @@
 		<property name="runtimeTableName" value="COUNTRY"/>
 -->
 	</table>
+
+
+
+	<!--
+	     answerRecorder 需要的表 start
+	     -->
+	<table catalog="answer" tableName="chapter" domainObjectName="Chapter" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		<property name="useActualColumnNames" value="true"/>
+		 <property name="ignoreQualifiersAtRuntime" value="false"/>
+	</table>
+
+	<table catalog="answer" tableName="issue" domainObjectName="Issue" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		<property name="useActualColumnNames" value="true"/>
+		 <property name="ignoreQualifiersAtRuntime" value="false"/>
+	</table>
+
+	<table catalog="answer" tableName="issueoption" domainObjectName="Issueoption" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		<property name="useActualColumnNames" value="true"/>
+		 <property name="ignoreQualifiersAtRuntime" value="false"/>
+	</table>
+	<!--
+	     answerRecorder 需要的表 end
+	     -->
 
     </context>
 </generatorConfiguration>

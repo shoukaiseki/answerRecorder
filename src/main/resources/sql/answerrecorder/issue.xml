@@ -4,7 +4,7 @@
 <!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
 -->
-<mapper namespace="test.spring.city.dao.CityDao">
+<mapper namespace="org.shoukaiseki.answerrecorder.issue.dao.IssueDao">
     <!--
     　　在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复,
     　　使用parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型
@@ -16,8 +16,26 @@
 　　　　select * from mobileversion where mobileversionid=#{id}
     </select>
 
-    <select id="getList" resultType="test.spring.maximo.mobileversion.model.Mobileversion">
-        　　　　select * from mobileversion
-    </select>
 	-->
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Issue">
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="question" jdbcType="VARCHAR" property="question" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="answerdescription" jdbcType="VARCHAR" property="answerdescription" />
+    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+<insert id="insert" parameterType="org.shoukaiseki.answerrecorder.issue.model.Issue">
+    insert into answer.issue (issueid, chapterid, question, 
+      answer, answerdescription, createdate, 
+      createby)
+    values (#{issueid,jdbcType=VARCHAR}, #{chapterid,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{answerdescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, 
+      #{createby,jdbcType=VARCHAR})
+  </insert>
+	
+    <select id="getList" resultType="org.shoukaiseki.answerrecorder.issue.model.Issue">
+	select * from issue
+    </select>
 </mapper>

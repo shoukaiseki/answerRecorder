@@ -1,6 +1,6 @@
 package dao.sakila;
 
-import model.sakila.City;
+import org.shoukaiseki.answerrecorder.model.City;
 
 public interface CityMapper {
     int deleteByPrimaryKey(Short city_id);
