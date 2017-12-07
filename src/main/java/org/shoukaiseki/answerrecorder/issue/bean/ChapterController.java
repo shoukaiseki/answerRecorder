@@ -41,7 +41,7 @@ public class ChapterController {
     @RequestMapping(value="/list", method = RequestMethod.GET)
     public ModelAndView getList(ModelMap model) {
 
-        List<Chapter> list = baseDao.getList();
+        List<Chapter> list = baseDao.getListRelationship();
         model.addAttribute("datas", list);
 
         ModelAndView mv=new ModelAndView();

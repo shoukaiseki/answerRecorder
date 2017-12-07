@@ -25,4 +25,7 @@ public interface IssueDao {
 
 
     Issue getModelByOnlyLimit(Issue obj);
+
+
+    List<Issue> findByChapterid(String chapterid);
 }

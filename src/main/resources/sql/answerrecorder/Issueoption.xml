@@ -21,4 +21,16 @@
     <select id="getList" resultType="org.shoukaiseki.answerrecorder.issue.model.Issueoption">
 		select * from answer.issueoption
     </select>
+	
+  <resultMap id="RelationshipResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Issueoption">
+    <result column="issueoptionid" jdbcType="VARCHAR" property="issueoptionid" />
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="option" jdbcType="VARCHAR" property="option" />
+    <result column="optiondescription" jdbcType="VARCHAR" property="optiondescription" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+    <select id="findByIssueid" resultMap="RelationshipResultMap"  parameterType="java.lang.String">
+	select * from answer.issueoption where issueid=#{issueid,jdbcType=VARCHAR}
+    </select>
 </mapper>

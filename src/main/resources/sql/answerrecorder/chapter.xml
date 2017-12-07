@@ -11,13 +11,15 @@
   </resultMap>
   
   
-  <resultMap id="ChapterResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Chapter">
+  <resultMap id="RelationshipResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Chapter">
     <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
     <result column="trainingname" jdbcType="VARCHAR" property="trainingname" />
     <result column="coursetitle" jdbcType="VARCHAR" property="coursetitle" />
     <result column="chaptername" jdbcType="VARCHAR" property="chaptername" />
     <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
     <result column="createby" jdbcType="VARCHAR" property="createby" />
+	 <association property="issueList" column="chapterid"                       
+            select="org.shoukaiseki.answerrecorder.issue.dao.IssueDao.findByChapterid" />
   </resultMap>
   
   <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
@@ -36,4 +38,10 @@
     <select id="getModelByOnlyLimit" resultType="org.shoukaiseki.answerrecorder.issue.model.Chapter" parameterType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
 		select * from answer.chapter where trainingname=#{trainingname,jdbcType=VARCHAR} and coursetitle=#{coursetitle,jdbcType=VARCHAR} and chaptername=#{chaptername,jdbcType=VARCHAR}
     </select>
+	
+	
+    <select id="getListRelationship" resultMap="RelationshipResultMap">
+		select * from answer.chapter
+    </select>
+	
 </mapper>

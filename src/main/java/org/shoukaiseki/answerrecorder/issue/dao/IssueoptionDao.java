@@ -23,4 +23,5 @@ public interface IssueoptionDao {
 
     int insert(Issueoption obj);
 
+    List<Issueoption> findByIssueid(String issueid);
 }

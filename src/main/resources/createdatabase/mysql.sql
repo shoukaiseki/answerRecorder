@@ -42,7 +42,7 @@ CREATE TABLE chapter(
       	trainingname VARCHAR(1000)  COMMENT '培训名称',
       	coursetitle VARCHAR(1000)  COMMENT '课程名称',
       	chaptername VARCHAR(1000)  COMMENT '章节名称',
-	createdate DATE COMMENT '创建时间',
+	createdate DATETIME COMMENT '创建时间',
 	createby VARCHAR(30)  COMMENT '创建用户'
 ); 
 CREATE TABLE issue(
@@ -51,7 +51,7 @@ CREATE TABLE issue(
       	question VARCHAR(1000)  COMMENT '问题',
        	answer  VARCHAR(30) COMMENT '问题答案',
        	answerdescription  VARCHAR(2000) COMMENT '问题答案描述',
-	createdate DATE COMMENT '创建时间',
+	createdate DATETIME COMMENT '创建时间',
 	createby VARCHAR(30)  COMMENT '创建用户'
 ); 
 
@@ -60,7 +60,7 @@ CREATE TABLE issueoption(
 	`issueid` varchar(36) NOT NULL  COMMENT '主键',
        	`OPTION`  VARCHAR(30) COMMENT '问题选项',
        	Optiondescription  VARCHAR(2000) COMMENT '问题选项描述',
-	createdate DATE COMMENT '创建时间',
+	createdate DATETIME COMMENT '创建时间',
 	createby VARCHAR(30)  COMMENT '创建用户'
 ); 
 

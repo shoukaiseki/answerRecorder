@@ -28,15 +28,17 @@
     </style>
 </head>  
 <body>  
-<table  cellpadding="5px" cellspacing="0px"  class="maintable mainTablecss">
+<table    class="maintable mainTablecss" style="width:100%;">
     <tbody>
-        <td class="mainTableComponentCss">序号</td>
-        <td class="mainTableComponentCss">记录标识</td>
-        <td class="mainTableComponentCss">培训名称</td>
-        <td class="mainTableComponentCss">课程名称</td>
-        <td class="mainTableComponentCss">章节名称</td>
+        <td class="mainTableComponentCss" nowrap>序号</td>
+		<!--
+        <td class="mainTableComponentCss" nowrap>记录标识</td>
+		-->
+        <td class="mainTableComponentCss" nowrap>培训名称</td>
+        <td class="mainTableComponentCss" nowrap>课程名称</td>
+        <td class="mainTableComponentCss" nowrap>章节名称</td>
         <td class="mainTableComponentCss" width="180">创建时间</td>
-        <td class="mainTableComponentCss">创建用户</td>
+        <td class="mainTableComponentCss" nowrap>创建用户</td>
         <!--
         <td class="mainTableComponentCss">城市</td>
         -->
@@ -44,7 +46,9 @@
         <c:forEach items="${datas}" var="obj" varStatus="objStatus">
             <tr>
                 <td class="mainTableComponentCss" nowrap>${objStatus.count}</td>
-                <td class="mainTableComponentCss" nowrap>${obj.chapterid}</td>
+		<!--
+                <td cellpadding="5px" cellspacing="0px" class="mainTableComponentCss" nowrap>${obj.chapterid}</td>
+		-->
                 <td class="mainTableComponentCss">${obj.trainingname}</td>
                 <td class="mainTableComponentCss">${obj.coursetitle}</td>
                 <td class="mainTableComponentCss">${obj.chaptername}</td>
@@ -53,6 +57,31 @@
                 </td>
                 <td class="mainTableComponentCss">${obj.createby}</td>
             </tr>
+			<c:forEach items="${obj.issueList}" var="issue" varStatus="issueStatus">
+				<tr> 
+					<td  class="mainTableComponentCss">
+					</td>
+					<td colspan="6" class="mainTableComponentCss"  cellspacing="0" cellpadding="0">
+						<table  class="childTable" frame="void" style="width:100%;height:100%;">
+								<tr>
+									<td width="50px" class="childTableComponentCss">${issueStatus.count}</td>	
+									<td colspan="2" align="left" class="childTableComponentCss">问题:${issue.question}</td>	
+								</tr>
+								<tr>
+									<td></td>
+									<td align="left" colspan="2" class="childTableComponentCss">答案:${issue.answer}&nbsp;[${issue.answerdescription}]</td>	
+								</tr>
+								<c:forEach items="${issue.issueoptionList}" var="issueoption" varStatus="issueoptionStatus">
+								<tr>
+									<td></td>
+									<td width="50px" class="childTableComponentCss">${issueoption.option}</td>	
+									<td align="left" class="childTableComponentCss">${issueoption.optiondescription}</td>	
+								</tr>
+								</c:forEach>
+						</table>
+					</td>
+				</tr>
+			</c:forEach>
         </c:forEach>
 </table>
 </body>

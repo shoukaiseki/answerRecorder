@@ -25,4 +25,7 @@ public interface ChapterDao {
 
     Chapter getModelByOnlyLimit(Chapter obj);
 
+
+    List<Chapter> getListRelationship();
+
 }
