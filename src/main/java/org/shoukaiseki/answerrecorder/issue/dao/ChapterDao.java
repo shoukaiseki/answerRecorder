@@ -23,4 +23,6 @@ public interface ChapterDao {
 
     int insert(Chapter obj);
 
+    Chapter getModelByOnlyLimit(Chapter obj);
+
 }

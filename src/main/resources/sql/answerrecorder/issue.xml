@@ -23,7 +23,7 @@
     <result column="question" jdbcType="VARCHAR" property="question" />
     <result column="answer" jdbcType="VARCHAR" property="answer" />
     <result column="answerdescription" jdbcType="VARCHAR" property="answerdescription" />
-    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
     <result column="createby" jdbcType="VARCHAR" property="createby" />
   </resultMap>
 <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.issue.model.Issue">
@@ -31,11 +31,16 @@
       answer, answerdescription, createdate, 
       createby)
     values (#{issueid,jdbcType=VARCHAR}, #{chapterid,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{answerdescription,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, 
+      #{answer,jdbcType=VARCHAR}, #{answerdescription,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
       #{createby,jdbcType=VARCHAR})
   </insert>
 	
     <select id="getList" resultType="org.shoukaiseki.answerrecorder.issue.model.Issue">
-	select * from issue
+	select * from answer.issue
     </select>
+	
+    <select id="getModelByOnlyLimit" resultType="org.shoukaiseki.answerrecorder.issue.model.Issue" parameterType="org.shoukaiseki.answerrecorder.issue.model.Issue">
+		select * from answer.issue where chapterid=#{chapterid,jdbcType=VARCHAR} and question=#{question,jdbcType=VARCHAR}
+    </select>
+	
 </mapper>

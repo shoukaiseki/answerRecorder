@@ -163,8 +163,22 @@
         <version>1.0-SNAPSHOT</version>
       </dependency-->
 
+        <!-- 文件上传 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.3</version>
+        </dependency>
 
-      <!--log4j-->
+        <!-- google 开源工具包 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.5-jre</version>
+        </dependency>
+
+
+        <!--log4j-->
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>

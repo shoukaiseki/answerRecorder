@@ -6,19 +6,34 @@
     <result column="trainingname" jdbcType="VARCHAR" property="trainingname" />
     <result column="coursetitle" jdbcType="VARCHAR" property="coursetitle" />
     <result column="chaptername" jdbcType="VARCHAR" property="chaptername" />
-    <result column="createdate" jdbcType="DATE" property="createdate" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
     <result column="createby" jdbcType="VARCHAR" property="createby" />
   </resultMap>
+  
+  
+  <resultMap id="ChapterResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Chapter">
+    <result column="chapterid" jdbcType="VARCHAR" property="chapterid" />
+    <result column="trainingname" jdbcType="VARCHAR" property="trainingname" />
+    <result column="coursetitle" jdbcType="VARCHAR" property="coursetitle" />
+    <result column="chaptername" jdbcType="VARCHAR" property="chaptername" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  
   <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
     insert into answer.chapter (chapterid, trainingname, coursetitle, 
       chaptername, createdate, createby
       )
     values (#{chapterid,jdbcType=VARCHAR}, #{trainingname,jdbcType=VARCHAR}, #{coursetitle,jdbcType=VARCHAR}, 
-      #{chaptername,jdbcType=VARCHAR}, #{createdate,jdbcType=DATE}, #{createby,jdbcType=VARCHAR}
+      #{chaptername,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, #{createby,jdbcType=VARCHAR}
       )
   </insert>
 	
     <select id="getList" resultType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
 	select * from answer.chapter
+    </select>
+	
+    <select id="getModelByOnlyLimit" resultType="org.shoukaiseki.answerrecorder.issue.model.Chapter" parameterType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
+		select * from answer.chapter where trainingname=#{trainingname,jdbcType=VARCHAR} and coursetitle=#{coursetitle,jdbcType=VARCHAR} and chaptername=#{chaptername,jdbcType=VARCHAR}
     </select>
 </mapper>

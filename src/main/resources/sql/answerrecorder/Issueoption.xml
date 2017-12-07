@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.shoukaiseki.answerrecorder.issue.dao.IssueoptionDao">
+  <resultMap id="BaseResultMap" type="org.shoukaiseki.answerrecorder.issue.model.Issueoption">
+    <result column="issueoptionid" jdbcType="VARCHAR" property="issueoptionid" />
+    <result column="issueid" jdbcType="VARCHAR" property="issueid" />
+    <result column="option" jdbcType="VARCHAR" property="option" />
+    <result column="optiondescription" jdbcType="VARCHAR" property="optiondescription" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+  </resultMap>
+  <insert id="insert" parameterType="org.shoukaiseki.answerrecorder.issue.model.Issueoption">
+    insert into answer.issueoption (issueoptionid, issueid, `OPTION`, 
+      Optiondescription, createdate, createby
+      )
+    values (#{issueoptionid,jdbcType=VARCHAR}, #{issueid,jdbcType=VARCHAR}, #{option,jdbcType=VARCHAR}, 
+      #{optiondescription,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, #{createby,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+    <select id="getList" resultType="org.shoukaiseki.answerrecorder.issue.model.Issueoption">
+		select * from answer.issueoption
+    </select>
+</mapper>

@@ -1,8 +1,10 @@
 package org.shoukaiseki.answerrecorder.issue.model;
 
+import com.google.common.collect.Lists;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 public class Chapter {
     private String chapterid;
@@ -17,6 +19,16 @@ public class Chapter {
     private Date createdate;
 
     private String createby;
+
+    private List<Issue> issueList= Lists.newArrayList();
+
+    public List<Issue> getIssueList() {
+        return issueList;
+    }
+
+    public void setIssueList(List<Issue> issueList) {
+        this.issueList = issueList;
+    }
 
     public String getChapterid() {
         return chapterid;

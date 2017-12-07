@@ -38,7 +38,7 @@
                 <td class="mainTableComponentCss">${country.country_id}</td>
                 <td class="mainTableComponentCss">${country.country}</td>
                 <td class="mainTableComponentCss">
-					<fmt:formatDate value="${country.last_update}"  type="DATE" pattern="yyyy-MM-DD HH:mm:ss"/>
+					<fmt:formatDate value="${country.last_update}"  type="DATE" pattern="yyyy-MM-dd HH:mm:ss"/>
                 </td>
                  <td  class="mainTableComponentCss"  cellspacing="0" cellpadding="0">
 					<table  class="childTable" frame="void" style="width:100%;height:100%;">

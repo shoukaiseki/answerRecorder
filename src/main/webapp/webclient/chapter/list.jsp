@@ -11,9 +11,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
 <title>Insert title here</title>
     <style>
-        .mainTableComponentCss { border:1px solid #0094ff; 
+        .mainTableComponentCss { 
+			border:1px solid #0094ff;
 		}
 		.mainTablecss table {
+			
 			border-top-width: 0px;
 			border-right-width: 0px;
 			border-bottom-width: 0px;
@@ -26,39 +28,30 @@
     </style>
 </head>  
 <body>  
-<table  cellpadding="0" cellspacing="0"  class="maintable mainTablecss">
+<table  cellpadding="5px" cellspacing="0px"  class="maintable mainTablecss">
     <tbody>
+        <td class="mainTableComponentCss">序号</td>
         <td class="mainTableComponentCss">记录标识</td>
         <td class="mainTableComponentCss">培训名称</td>
         <td class="mainTableComponentCss">课程名称</td>
         <td class="mainTableComponentCss">章节名称</td>
-        <td class="mainTableComponentCss" width="250">创建时间</td>
+        <td class="mainTableComponentCss" width="180">创建时间</td>
         <td class="mainTableComponentCss">创建用户</td>
         <!--
         <td class="mainTableComponentCss">城市</td>
         -->
     </tbody>
-        <c:forEach items="${lists}" var="obj">
+        <c:forEach items="${datas}" var="obj" varStatus="objStatus">
             <tr>
-                <td class="mainTableComponentCss">${obj.chapterid}</td>
-                <td class="mainTableComponentCss">${country.trainingname}</td>
-                <td class="mainTableComponentCss">${country.coursetitle}</td>
-                <td class="mainTableComponentCss">${country.chaptername}</td>
+                <td class="mainTableComponentCss" nowrap>${objStatus.count}</td>
+                <td class="mainTableComponentCss" nowrap>${obj.chapterid}</td>
+                <td class="mainTableComponentCss">${obj.trainingname}</td>
+                <td class="mainTableComponentCss">${obj.coursetitle}</td>
+                <td class="mainTableComponentCss">${obj.chaptername}</td>
                 <td class="mainTableComponentCss">
-					<fmt:formatDate value="${country.createdate}"  type="DATE" pattern="yyyy-MM-dd HH:mm:ss"/>
+					<fmt:formatDate value="${obj.createdate}"  type="DATE" pattern="yyyy-MM-dd HH:mm:ss"/>
                 </td>
-                <td class="mainTableComponentCss">${country.createby}</td>
-                <!--
-                 <td  class="mainTableComponentCss"  cellspacing="0" cellpadding="0">
-					<table  class="childTable" frame="void" style="width:100%;height:100%;">
-						<c:forEach items="${country.cityList}" var="city">
-							<tr>
-								<td class="childTableComponentCss">${city.city}</td>	
-							</tr>
-						</c:forEach>
-					</table>
-                </td>
-                -->
+                <td class="mainTableComponentCss">${obj.createby}</td>
             </tr>
         </c:forEach>
 </table>

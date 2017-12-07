@@ -80,7 +80,7 @@ public class IssueController {
         }
         issue.setIssueid(UUID.randomUUID().toString());
         issue.setCreatedate(new Date());
-        baseDao.add(issue);
+        baseDao.insert(issue);
         ModelAndView mv=new ModelAndView();
         mv.setViewName("issue/edit");
         return mv;

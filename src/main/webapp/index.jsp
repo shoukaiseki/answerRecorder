@@ -30,6 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <br>
   <a href="mobileversion/list" target="_blank">/mobileversion/list</a>
   <br>
+  <h1>文件上传</h1>
+  <a href="webclient/testupload/index.jsp" target="_blank">文件上传</a>
   <h1>city</h1>
   <a href="city/list" target="_blank">/city/list</a>
   <%--<a href="webclient/answerrecorder/index.jsp" target="_blank">/webclient/answerrecorder/index.jsp</a>--%>
@@ -46,6 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="chapter/list" target="_blank">章节列表</a>
 	<br>
   <a href="chapter/add/0" target="_blank">章节添加</a>
+	<br>
+  <a href="impfiles/import/0" target="_blank">导入文件</a>
   <!--
   <a href="issue/list" target="_blank">章节列表</a>
 	<br>

@@ -45,7 +45,7 @@ public class ChapterController {
         model.addAttribute("datas", list);
 
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("issue/list");
+        mv.setViewName("chapter/list");
         return mv;
     }
 
@@ -65,7 +65,6 @@ public class ChapterController {
         return chapterid;
     }
      **/
-
     @RequestMapping(value="/add/{chapterid}",method=RequestMethod.GET)
     public ModelAndView add(@PathVariable(value="chapterid",required=false) String chapterid, ModelMap model){
         log.debug("chapterid="+chapterid);

@@ -1,7 +1,10 @@
 package org.shoukaiseki.answerrecorder.issue.model;
 
+import com.google.common.collect.Lists;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Issue implements Serializable{
     private String issueid;
@@ -17,6 +20,16 @@ public class Issue implements Serializable{
     private Date createdate;
 
     private String createby;
+
+    private List<Issueoption> issueoptionList= Lists.newArrayList();
+
+    public List<Issueoption> getIssueoptionList() {
+        return issueoptionList;
+    }
+
+    public void setIssueoptionList(List<Issueoption> issueoptionList) {
+        this.issueoptionList = issueoptionList;
+    }
 
     public String getIssueid() {
         return issueid;

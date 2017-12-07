@@ -21,6 +21,8 @@ public interface IssueDao {
     public List<Country> getRandomList();
      **/
 
-    int add(Issue obj);
+    int insert(Issue obj);
 
+
+    Issue getModelByOnlyLimit(Issue obj);
 }

@@ -24,5 +24,11 @@ public class TestString {
                 System.out.println(strTemp);
             };
         }
+
+        String chaptername="泌尿系统疾病（二）.txt";
+        if(chaptername.indexOf(".txt")>-1){
+            chaptername=chaptername.substring(0,chaptername.indexOf(".txt"));
+        }
+        System.out.println("chaptername="+chaptername);
     }
 }

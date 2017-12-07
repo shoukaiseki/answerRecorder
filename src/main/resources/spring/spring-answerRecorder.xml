@@ -99,4 +99,13 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+	
+	
+	
+	<!-- 文件上传解析器 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="defaultEncoding" value="utf-8"></property>
+	<property name="maxUploadSize" value="10485760000"></property><!-- 最大上传文件大小 -->
+	<property name="maxInMemorySize" value="10960"></property>
+</bean>
 </beans>
