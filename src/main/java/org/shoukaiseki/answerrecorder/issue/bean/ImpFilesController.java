@@ -153,7 +153,7 @@ public class ImpFilesController {
         long endTime=System.currentTimeMillis(); //获取结束时间
         log.debug("上传文件共使用时间："+(endTime-startTime)+"ms");
         msg+="<br>"+"上传文件共使用时间："+(endTime-startTime)+"ms";
-        msg+="<br>"+"上传文件共使用时间："+ StringKit.timeDifference(startTime,endTime)+"ms";
+        msg+="<br>"+"上传文件共使用时间："+ StringKit.INSTANCE.timeDifference(startTime,endTime)+"ms";
         model.addAttribute("msg",msg);
         model.addAttribute("chapters",chapters);
         return "impfiles/index";

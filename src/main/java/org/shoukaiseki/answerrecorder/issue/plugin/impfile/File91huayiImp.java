@@ -27,7 +27,7 @@ public class File91huayiImp implements ImpFile{
     @Override
     public List<Issue> parser(@NotNull String chapterid, String string) {
         ArrayList<Issue> list = Lists.newArrayList();
-        if(!StringKit.isBlank(string)){
+        if(!StringKit.INSTANCE.isBlank(string)){
             String[] ts = string.split("\n");
             Issue issueObj=null;
             for (String str:ts){
@@ -75,7 +75,7 @@ public class File91huayiImp implements ImpFile{
                     if(indexPosition!=-1){
                         String substring = str.substring(0, indexPosition);
                         log.debug("substring="+substring);
-                        if(substring.length()==1&&StringKit.isLetter(substring)){
+                        if(substring.length()==1&& StringKit.INSTANCE.isLetter(substring)){
                             String option=substring;
 //                            String optionContent=str.substring(indexPosition+1,str.length());
                             String optionContent=str.substring(indexPosition+1);
@@ -92,7 +92,7 @@ public class File91huayiImp implements ImpFile{
                     if(indexPosition!=-1){
                         String substring = str.substring(0, indexPosition);
                         log.debug("substring="+substring);
-                        if(substring.length()==1&&StringKit.isLetter(substring)){
+                        if(substring.length()==1&& StringKit.INSTANCE.isLetter(substring)){
                             String option=substring;
 //                            String optionContent=str.substring(indexPosition+1,str.length());
                             String optionContent=str.substring(indexPosition+1);
@@ -114,7 +114,7 @@ public class File91huayiImp implements ImpFile{
                     if(indexPosition!=-1){
                         String substring = str.substring(0, indexPosition);
                         log.debug("substring="+substring);
-                        if(StringKit.isNumeric(substring)){
+                        if(StringKit.INSTANCE.isNumeric(substring)){
                             title=str.substring(indexPosition+1);
                         }
                     }
@@ -122,11 +122,11 @@ public class File91huayiImp implements ImpFile{
                     if(indexPosition!=-1){
                         String substring = str.substring(0, indexPosition);
                         log.debug("substring="+substring);
-                        if(StringKit.isNumeric(substring)){
+                        if(StringKit.INSTANCE.isNumeric(substring)){
                             title=str.substring(indexPosition+1);
                         }
                     }
-                    if(issueObj!=null&&StringKit.isBlank(issueObj.getAnswerdescription())&&!StringKit.isBlank(issueObj.getAnswer())){
+                    if(issueObj!=null&& StringKit.INSTANCE.isBlank(issueObj.getAnswerdescription())&&!StringKit.INSTANCE.isBlank(issueObj.getAnswer())){
 
                         for (Issueoption issueoptionTemp:issueObj.getIssueoptionList()) {
                             if(issueObj.getAnswer().equals(issueoptionTemp.getOption())){

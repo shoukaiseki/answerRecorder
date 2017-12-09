@@ -2,6 +2,16 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1" metadata-complete="true">
+	
+	<!--session超时时间60分钟-->
+	<session-config> 
+		<session-timeout>60</session-timeout> 
+	</session-config> 
+	<!--session超时监听类-->
+	<listener> 
+		<listener-class>org.shoukaiseki.session.SessionListener</listener-class> 
+	</listener>
+	
 	<!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
 	<!-- 配置DispatcherServlet -->
 	<servlet>
