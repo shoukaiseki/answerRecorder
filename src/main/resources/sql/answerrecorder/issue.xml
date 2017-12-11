@@ -59,4 +59,12 @@
 	select * from answer.issue where chapterid=#{chapterid,jdbcType=VARCHAR}
     </select>
 	
+	
+    <select id="getRandomList" resultMap="RelationshipResultMap">	
+		SELECT 
+			t1.*
+			FROM answer.issue AS t1 JOIN 
+				(SELECT ROUND(RAND() * ((SELECT MAX(issueid) FROM answer.issue)-(SELECT MIN(issueid) FROM answer.issue))+(SELECT MIN(issueid) FROM answer.issue)) AS issueid)
+			AS t2 WHERE t1.issueid >= t2.issueid ORDER BY t1.issueid LIMIT 100;
+    </select>
 </mapper>

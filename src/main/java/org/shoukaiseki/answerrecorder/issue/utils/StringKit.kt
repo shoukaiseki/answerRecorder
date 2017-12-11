@@ -1,6 +1,7 @@
 package org.shoukaiseki.answerrecorder.issue.utils
 
 
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.logging.SimpleFormatter
@@ -17,6 +18,7 @@ open class StringKit {
 
     companion object {
         @JvmField val INSTANCE = StringKit()
+        @JvmField val numberFormat = DecimalFormat("####")
 
     }
 

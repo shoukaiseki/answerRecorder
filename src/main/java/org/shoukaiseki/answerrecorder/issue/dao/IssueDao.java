@@ -28,4 +28,7 @@ public interface IssueDao {
 
 
     List<Issue> findByChapterid(String chapterid);
+
+
+    List<Issue> getRandomList();
 }
