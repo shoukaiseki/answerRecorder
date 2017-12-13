@@ -35,7 +35,7 @@
 	select * from answer.chapter
     </select>
 
-    <select id="getModelById" resultType="org.shoukaiseki.answerrecorder.issue.model.Chapter" parameterType="java.lang.String">
+    <select id="getModelById" resultType="java.lang.String" parameterType="org.shoukaiseki.answerrecorder.issue.model.Chapter">
 		select * from answer.chapter where chapterid=#{chapterid,jdbcType=VARCHAR}
     </select>
 	

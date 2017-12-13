@@ -76,7 +76,10 @@ public class ImpFilesController {
         String msg="";
         if(files.length==0){
             msg="无附件";
+        }else{
+            chapters=Lists.newLinkedList();
         }
+
         for (CommonsMultipartFile file:files){
             if(!file.isEmpty()){
                 try {

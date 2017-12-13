@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>查看java版本</title>
+    <title>答题练习</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -48,6 +48,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <br>
   <a href="springanswerrecorder/cleartopic/" target="_blank">清空答案记录器内容</a>
   <h2>新版</h2>
+  <a href="webclient/chapter/statistics.jsp" target="_blank">课程统计</a>
+	<br>
+  <a href="webclient/chapter/issuelistindex.jsp" target="_blank">所有章节统计</a>
+	<br>
+	<!--
+  <a href="chapter/chapternameStatistics" target="_blank">所有章节统计</a>
+	<br>
+	-->
   <a href="chapter/list" target="_blank">章节列表</a>
 	<br>
   <a href="chapter/add/0" target="_blank">章节添加</a>

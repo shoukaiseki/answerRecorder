@@ -3,7 +3,10 @@ package org.shoukaiseki.answerrecorder.issue.bean;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
 import org.shoukaiseki.answerrecorder.issue.dao.ChapterDao;
+import org.shoukaiseki.answerrecorder.issue.dao.IssueDao;
 import org.shoukaiseki.answerrecorder.issue.model.Chapter;
+import org.shoukaiseki.answerrecorder.issue.model.ChapterChapternameStatistics;
+import org.shoukaiseki.answerrecorder.issue.model.ChapterCoursetitleStatistics;
 import org.shoukaiseki.answerrecorder.issue.model.Issue;
 import org.shoukaiseki.answerrecorder.issue.validator.ChapterValidator;
 import org.shoukaiseki.answerrecorder.issue.validator.IssueValidator;
@@ -37,6 +40,10 @@ public class ChapterController {
 
     @Autowired
     public ChapterDao baseDao;
+
+    @Autowired
+    public IssueDao issueDao;
+
 
     @RequestMapping(value="/list", method = RequestMethod.GET)
     public ModelAndView getList(ModelMap model) {
@@ -106,4 +113,52 @@ public class ChapterController {
         return mv;
     }
 
+    @RequestMapping(value="/coursetitleStatistics")
+    public ModelAndView coursetitleStatistics(ModelMap model){
+
+        List<ChapterCoursetitleStatistics> list = baseDao.getCoursetitleStatisticsList();
+        model.addAttribute("datas", list);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("chapter/coursetitleStatistics");
+        return mv;
+    }
+
+    @RequestMapping(value="/chapternameStatisticsByTC/{chapterid}")
+    public ModelAndView getChapternameListByTC(@PathVariable(value="chapterid",required=false) String chapterid,ModelMap model){
+
+        List<ChapterChapternameStatistics> list = baseDao.getChapternameStatisticsListByTC(chapterid);
+        model.addAttribute("datas", list);
+        if(list.size()>=1){
+            model.addAttribute("trainingname", list.get(0).getTrainingname());
+            model.addAttribute("coursetitle", list.get(0).getCoursetitle());
+        }
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("chapter/chapternameStatistics");
+        return mv;
+    }
+
+
+    @RequestMapping(value="/issuelist/{chapterid}")
+    public ModelAndView getIssueList(@PathVariable(value="chapterid",required=false) String chapterid,ModelMap model){
+
+        Chapter chapter = baseDao.getModelById(chapterid);
+
+        List<Issue> list = issueDao.findByChapterid(chapterid);
+        model.addAttribute("datas", list);
+        model.addAttribute("chapter", chapter);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("chapter/issuelist");
+        return mv;
+    }
+
+
+    @RequestMapping(value="/chapternameStatistics")
+    public ModelAndView getChapternameList(ModelMap model){
+
+        List<ChapterChapternameStatistics> list = baseDao.getChapternameStatisticsListAll();
+        model.addAttribute("datas", list);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("chapter/chapternameStatistics");
+        return mv;
+    }
 }
