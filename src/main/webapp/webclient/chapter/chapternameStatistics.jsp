@@ -34,11 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>  
 <body>  
+<c:set var="tablerowspan" value="1"></c:set>
 <c:if test="${!empty trainingname}">
 	培训名称:${trainingname}
 	<br>
 	课程名称:${coursetitle}
 	<br>
+	<c:set var="tablerowspan" value="2"></c:set>
 </c:if>
 <c:set var="sum" value="0"></c:set>
 <c:forEach items="${datas}" var="obj" >
@@ -51,7 +53,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!--
         <td class="mainTableComponentCss" nowrap>记录标识</td>
 		-->
-        <td class="mainTableComponentCss" nowrap>培训名称/课程名称</td>
+		<c:if test="${!empty trainingname}">
+				<td class="mainTableComponentCss" nowrap>培训名称/课程名称</td>
+		</c:if>
         <td class="mainTableComponentCss" nowrap>章节名称</td>
         <td class="mainTableComponentCss" nowrap>题目数量</td>
         <td class="mainTableComponentCss" nowrap></td>
@@ -61,23 +65,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tbody>
         <c:forEach items="${datas}" var="obj" varStatus="objStatus">
             <tr>
-                <td rowspan="2" class="mainTableComponentCss" nowrap>${objStatus.count}</td>
-                <td class="mainTableComponentCss">${obj.trainingname}</td>
+                <td rowspan="${tablerowspan}" class="mainTableComponentCss" nowrap>${objStatus.count}</td>
+				<c:if test="${!empty trainingname}">
+					<td class="mainTableComponentCss">${obj.trainingname}</td>
+				</c:if>
 		<!--
                 <td cellpadding="5px" cellspacing="0px" class="mainTableComponentCss" nowrap>${obj.chapterid}</td>
 		-->
-                <td rowspan="2" class="mainTableComponentCss">${obj.chaptername}</td>
-                <td rowspan="2" class="mainTableComponentCss">${obj.issuecount}</td>
-                <td rowspan="2" class="mainTableComponentCss">
+                <td rowspan="${tablerowspan}" class="mainTableComponentCss">${obj.chaptername}</td>
+                <td rowspan="${tablerowspan}" class="mainTableComponentCss">${obj.issuecount}</td>
+                <td rowspan="${tablerowspan}" class="mainTableComponentCss">
 					<a href="chapter/issuelist/${obj.chapterid}"  target="issueList"><img src="<%=basePath%>webclient/javascript/imgs/properties.gif"   alt="查看详情" /></a>
 				</td>
 				
 		
                
             </tr>
-            <tr>
-                <td class="mainTableComponentCss">${obj.coursetitle}</td>
-            </tr>
+			<c:if test="${!empty trainingname}">
+				<tr>
+					<td class="mainTableComponentCss">${obj.coursetitle}</td>
+				</tr>
+			</c:if>
         </c:forEach>
 </table>
 </body>
