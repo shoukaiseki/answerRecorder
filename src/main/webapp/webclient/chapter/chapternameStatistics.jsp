@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!--
         <td class="mainTableComponentCss" nowrap>记录标识</td>
 		-->
-		<c:if test="${!empty trainingname}">
+		<c:if test="${empty trainingname}">
 				<td class="mainTableComponentCss" nowrap>培训名称/课程名称</td>
 		</c:if>
         <td class="mainTableComponentCss" nowrap>章节名称</td>
