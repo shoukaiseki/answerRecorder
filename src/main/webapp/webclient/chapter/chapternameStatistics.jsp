@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:forEach items="${datas}" var="obj" varStatus="objStatus">
             <tr>
                 <td rowspan="${tablerowspan}" class="mainTableComponentCss" nowrap>${objStatus.count}</td>
-				<c:if test="${!empty trainingname}">
+				<c:if test="${empty trainingname}">
 					<td class="mainTableComponentCss">${obj.trainingname}</td>
 				</c:if>
 		<!--
@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
                
             </tr>
-			<c:if test="${!empty trainingname}">
+			<c:if test="${empty trainingname}">
 				<tr>
 					<td class="mainTableComponentCss">${obj.coursetitle}</td>
 				</tr>
