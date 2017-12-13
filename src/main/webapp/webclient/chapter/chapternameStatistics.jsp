@@ -34,13 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>  
 <body>  
-<c:set var="tablerowspan" value="1"></c:set>
+<c:set var="tablerowspan" value="2"></c:set>
 <c:if test="${!empty trainingname}">
 	培训名称:${trainingname}
 	<br>
 	课程名称:${coursetitle}
 	<br>
-	<c:set var="tablerowspan" value="2"></c:set>
+	<c:set var="tablerowspan" value="1"></c:set>
 </c:if>
 <c:set var="sum" value="0"></c:set>
 <c:forEach items="${datas}" var="obj" >
