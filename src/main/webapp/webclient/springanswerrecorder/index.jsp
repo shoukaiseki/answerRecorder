@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page language="java" import="java.util.*,java.text.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -272,8 +273,15 @@
 
 	<div style="width:800px;margin:0 auto;">
             推荐答案(${topicstemp.size()}):
-		<c:forEach items="${topicstemp}" var="topic">
-			${topic.answerrecommends};
+		<c:forEach items="${topicstemp}" var="topic">	
+			<c:choose>
+			 <c:when test="${fn:length(topic.answercorrects)}==0">
+				<font color="red">${topic.answerrecommends};</font>
+			 </c:when>
+			 <c:otherwise>
+				<font color="#0000FF">${topic.answerrecommends};</font>
+			 </c:otherwise>
+			</c:choose>
 		</c:forEach>
 	</div>
 	<div style="width:800px;margin:0 auto;">

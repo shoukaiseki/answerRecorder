@@ -1,6 +1,7 @@
 package test.spring.answerrecorder;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.ui.ModelMap;
@@ -29,6 +30,8 @@ public class AnswerRecorderController {
 
     private List<Topic> topics=new ArrayList<Topic>();
     private String topictemp=null;
+
+    List<Topic> topicsTemp= Lists.newArrayList();
 
     Logger log=Logger.getLogger("org.shoukaiseki");
 
@@ -202,8 +205,8 @@ public class AnswerRecorderController {
     @RequestMapping(value="")
     public ModelAndView index(@RequestParam(value="topic", required = false) String topic,ModelMap model) {
         log.debug("--------------------- topic="+topic);
-        List<Topic> topicsTemp=new ArrayList<>();
         if(!isBlank(topic)&&!topic.equalsIgnoreCase(topictemp)){
+            topicsTemp=new ArrayList<>();
             topictemp=topic;
             String[] ts = topic.split("\n");
             Topic topicObj=null;
