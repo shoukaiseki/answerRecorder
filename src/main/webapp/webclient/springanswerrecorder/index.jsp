@@ -272,16 +272,20 @@
 	</div>
 
 	<div style="width:800px;margin:0 auto;">
+		<font color="red">红色:无正确答案</font>;<font color="#0000FF">蓝色:有正确答案</font>
+	</div>
+	<div style="width:800px;margin:0 auto;">
             推荐答案(${topicstemp.size()}):
 		<c:forEach items="${topicstemp}" var="topic">	
 			<c:choose>
-			 <c:when test="${fn:length(topic.answercorrects)}==0">
+			 <c:when test="${fn:length(topic.answercorrects)==0}">
 				<font color="red">${topic.answerrecommends};</font>
 			 </c:when>
 			 <c:otherwise>
 				<font color="#0000FF">${topic.answerrecommends};</font>
 			 </c:otherwise>
 			</c:choose>
+			<!--[answercorrects:${topic.answercorrects}]-->
 		</c:forEach>
 	</div>
 	<div style="width:800px;margin:0 auto;">
