@@ -51,6 +51,7 @@ public class AnswerRecorderController {
     public String clearTopic(){
         topics.clear();
         topictemp=null;
+        topicsTemp.clear();
         return "success";
     }
 
