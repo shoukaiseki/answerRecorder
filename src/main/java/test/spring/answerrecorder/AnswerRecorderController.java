@@ -3,6 +3,9 @@ package test.spring.answerrecorder;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
+import org.shoukaiseki.answerrecorder.capture.html.Capture91huayiHTML;
+import org.shoukaiseki.answerrecorder.issue.model.Chapter;
+import org.shoukaiseki.answerrecorder.issue.utils.StringKit;
 import org.springframework.context.annotation.Scope;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -212,6 +215,7 @@ public class AnswerRecorderController {
             String[] ts = topic.split("\n");
             Topic topicObj=null;
             for (String str:ts){
+                log.debug("str="+str);
                 str=str.trim();
                 if(str.isEmpty()){
                     continue;
@@ -233,9 +237,9 @@ public class AnswerRecorderController {
                                 topicObj.getAnswercorrects().add(strTemp);
                             }
                         }
-                        for (String strTemp:ls.get(1).split(",")){
-                            if(!strTemp.isEmpty()){
-                                topicObj.getAnswerrecommends().add(strTemp);
+                        for (String strTemp1:ls.get(1).split(",")){
+                            if(!strTemp1.isEmpty()){
+                                topicObj.getAnswerrecommends().add(strTemp1);
                             }
                         }
                         for (String strTemp:ls.get(2).split(",")){
@@ -334,6 +338,83 @@ public class AnswerRecorderController {
         return mv;
     }
 
+
+    //批量设置错误标识位
+    @RequestMapping(value="copyanswerrecorder")
+    public ModelAndView copyanswerrecorder(ModelMap model) {
+        StringBuffer sb=new StringBuffer();
+        for (Topic topicTemp:topics) {
+           sb.append(topicTemp.getSn()).append("、").append(topicTemp.getTitle());
+           sb.append("\n");
+           sb.append("正确的答案:").append(topicTemp.getAnswercorrects());
+           sb.append("\t\t推荐的答案:").append(topicTemp.getAnswerrecommends());
+            sb.append("\t\t错误的答案:").append(topicTemp.getAnswerwrongs());
+            for (Map.Entry<String,String> options: topicTemp.getOptions().entrySet()){
+                sb.append("\n");
+                sb.append(options.getValue());
+            }
+           sb.append("\n");
+        }
+        model.addAttribute("answerrecorder",sb.toString());
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("springanswerrecorder/copyanswerrecorder");
+        return mv;
+    }
+
+
+    String capturehtml_URL ="";
+    String capturehtml_msg="";
+
+    //批量设置错误标识位
+    @RequestMapping(value="capturehtml")
+    public ModelAndView captureHTML(ModelMap model) {
+        model.addAttribute("url",capturehtml_URL);
+        model.addAttribute("msg",capturehtml_msg);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("springanswerrecorder/capturehtml");
+        return mv;
+    }
+
+    @RequestMapping(value="capturehtmlaction",method = RequestMethod.POST)
+    public ModelAndView captureHTMLAction(@RequestParam(value="url", required = false) String urlStr,ModelMap model) {
+        topics.clear();
+        topictemp=null;
+        topicsTemp.clear();
+
+        ModelAndView mv=new ModelAndView();
+        this.capturehtml_URL=urlStr;
+        log.debug("capturehtml_URL="+capturehtml_URL);
+        if(capturehtml_URL==null){
+            capturehtml_msg="'url地址'不能为空";
+            mv.setViewName("redirect:/springanswerrecorder/capturehtml");
+            return mv;
+        }
+        long startTime=System.currentTimeMillis();
+        Capture91huayiHTML captureHTML = new Capture91huayiHTML(capturehtml_URL);
+        try {
+            for (int i=0;i<10;i++){
+            captureHTML.process();
+                List<Topic> topicsTemp = captureHTML.getTopics();
+                for (Topic topicTemp:topicsTemp) {
+                    addTopic(topicTemp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            capturehtml_msg="解析错误";
+            mv.setViewName("redirect:/springanswerrecorder/capturehtml");
+            return mv;
+        }
+        long endTime=System.currentTimeMillis();
+        String s = StringKit.INSTANCE.timeDifference(startTime, endTime);
+        capturehtml_msg="分析完毕,耗时:"+s;
+
+        mv.setViewName("redirect:/springanswerrecorder/capturehtml");
+        return mv;
+    }
+
+
+
     /**
      * 添加题目,如果存在同标题的则不添加
      * @param topic
@@ -352,6 +433,8 @@ public class AnswerRecorderController {
         topic.setSn(topics.size());
         return topic;
     }
+
+
 
 
     /**

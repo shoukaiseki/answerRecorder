@@ -270,6 +270,9 @@
 		&nbsp&nbsp
 		<input class="multilinetable_input_middle" type="button" name="actionclearTopic" value="清空题目"  onclick="clearTopic()"/>
 	</div>
+	<div style="width:800px;margin:0 auto;" align="left" >
+		<input class="multilinetable_input_middle" type="button" id="copytimudaan" value="复制题目答案"  />
+	</div>
 
 	<div style="width:800px;margin:0 auto;">
 		<font color="red">红色:无正确答案</font>;<font color="#0000FF">蓝色:有正确答案</font>
@@ -500,7 +503,25 @@
             Logger.log("set scrollTop");
             Logger.log(document.body.scrollTop);
         }
+		
+		$('#copytimudaan').click(function() {
+		 var src=$('#timudaansrc').text();
+		 //Logger.log(src);
+		 openwindow('springanswerrecorder/copyanswerrecorder','src');
+	 });
     }
+	 // url 转向网页的地址  
+ // name 网页名称，可为空  
+ function openwindow(url,name)  
+ {  
+	 iWidth="750px";
+	 iHeight="400px";
+	 //window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽  
+	 var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;  
+	 var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;  
+	 myWindow=window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');  
 
+	 myWindow.focus();
+ }  
 </script>
 </html>

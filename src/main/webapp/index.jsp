@@ -44,6 +44,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="country/randomlist" target="_blank">国家随机50条记录列表</a>
 
   <h1>答案记录器</h1>
+  <a href="springanswerrecorder/capturehtml" target="_blank">题目答案分析</a>
+  <br>
   <a href="springanswerrecorder" target="_blank">答案记录器</a>
   <br>
   <a href="springanswerrecorder/cleartopic/" target="_blank">清空答案记录器内容</a>
