@@ -70,4 +70,9 @@
     <select id="getRandomList" resultMap="RelationshipResultMap">
 			SELECT * FROM answer.issue ORDER BY RAND() LIMIT 100
     </select>
+
+
+  <select id="findIssueByLike" resultMap="RelationshipResultMap"  parameterType="java.lang.String">
+    select * from answer.issue where question like CONCAT('%',#{keyword},'%')
+  </select>
 </mapper>

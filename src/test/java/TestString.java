@@ -52,5 +52,8 @@ public class TestString {
         System.out.println("chaptername="+chaptername);
 
         System.out.println("topicObj="+topicObj.getAnswercorrects());
+        System.out.println("\n" +
+                "\t\t         <label for=\"text-12\">Text input:</label>\n" +
+                "\t\t           <input type=\"text\" name=\"text-12\" id=\"text-12\" value=\"\">");
     }
 }

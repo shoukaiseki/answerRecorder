@@ -31,4 +31,6 @@ public interface IssueDao {
 
 
     List<Issue> getRandomList();
+
+    List<Issue> findIssueByLike(String keyword);
 }

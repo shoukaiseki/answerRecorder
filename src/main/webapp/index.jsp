@@ -50,6 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <br>
   <a href="springanswerrecorder/cleartopic/" target="_blank">清空答案记录器内容</a>
   <h2>新版</h2>
+  <a href="findissue" target="_blank">查找题目</a>
+  <br>
   <a href="webclient/chapter/statistics.jsp" target="_blank">课程统计</a>
 	<br>
   <a href="webclient/chapter/issuelistindex.jsp" target="_blank">所有章节统计</a>
