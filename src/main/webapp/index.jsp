@@ -3,7 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@page contentType="text/html;charset=UTF-8" autoFlush="true"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -22,10 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
 <div data-role="page" id="pageone">
+<%@include file="webclient/mobile/header.jsp"%>
   <div data-role="main" class="ui-content">
     <h2>导航</h2>
     <ol data-role="listview">
       <li><a href="findissue">查找题目</a></li>
+	  <li><a href="findissue/pagingdisplay/10/1" rel="external">顺序查看题目</a></li>
 	  <!--跳转之后不刷新页面,增加  rel="external" 即可-->
       <li><a href="webclient/chapter/statistics.jsp" rel="external">课程统计</a></li>
       <li><a href="webclient/chapter/issuelistindex.jsp"  rel="external">所有章节统计</a></li>

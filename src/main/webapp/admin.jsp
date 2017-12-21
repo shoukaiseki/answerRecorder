@@ -52,6 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h2>新版</h2>
   <a href="findissue" target="_blank">查找题目</a>
   <br>
+  <a href="findissue/pagingdisplay/10/1" target="_blank">分页查看题目(findissue/pagingdisplay/每页几行/第几页)</a>
+  <br>
   <a href="webclient/chapter/statistics.jsp" target="_blank">课程统计</a>
 	<br>
   <a href="webclient/chapter/issuelistindex.jsp" target="_blank">所有章节统计</a>

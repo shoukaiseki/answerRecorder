@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--
 -->
 <div data-role="page">
-  <div data-role="header">
+	<%@include file="../mobile/header.jsp"%>
   <div data-role="main" class="ui-content">
 		<!--
 		<h2>支持模糊搜索,但是搜索的关键字顺序必须与题目一致</h2>
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </table>
 			</div>
 		</form>
-		<c:if test="${list!= null || fn:length(list) > 0}">
+		<c:if test="${list!= null && fn:length(list) > 0}">
 			<p>为您搜索到记录数${fn:length(list)}条</p>
 		</c:if>
 		<c:forEach items="${list}" var="issue" varStatus="issueStatus">
@@ -102,7 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</c:forEach>
 	</div>
-  </div>
 </div>
 <!--jquery在同一页面提交表单时,会有缓存,提交表单之后导致$("#keyword").val("病理 哪个 光镜学"); 方法失效-->
 <!--解决方法一:更改所有 id="keyword" 的值(因为当时缓存中有多个input)-->

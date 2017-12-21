@@ -1,5 +1,6 @@
 package org.shoukaiseki.answerrecorder.issue.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 import org.shoukaiseki.answerrecorder.issue.model.Issue;
 
@@ -33,4 +34,13 @@ public interface IssueDao {
     List<Issue> getRandomList();
 
     List<Issue> findIssueByLike(String keyword);
+
+    /**
+     * 分页显示,每页默认10条
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    List<Issue> getListPagingDisplay(@Param("pagenum") int page,@Param("pagesize") int pageSize);
+
 }

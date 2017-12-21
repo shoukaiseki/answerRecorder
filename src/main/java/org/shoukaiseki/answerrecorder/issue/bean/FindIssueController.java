@@ -1,11 +1,14 @@
 package org.shoukaiseki.answerrecorder.issue.bean;
 
+import afu.org.checkerframework.checker.oigj.qual.O;
 import com.google.common.collect.Lists;
 import org.shoukaiseki.answerrecorder.issue.dao.IssueDao;
 import org.shoukaiseki.answerrecorder.issue.model.Issue;
+import org.shoukaiseki.answerrecorder.issue.utils.StringKit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +36,7 @@ public class FindIssueController {
 
     @RequestMapping(value="")
     public ModelAndView index(@RequestParam(value="keyword", required = false) String keyword, ModelMap model) {
-        if(keyword!=null){
+        if(!StringKit.INSTANCE.isBlank(keyword)){
             this.keyword=keyword;
             keyword=keyword.replaceAll(" ","%");
             issueList=issueDao.findIssueByLike(keyword);
@@ -66,5 +69,20 @@ public class FindIssueController {
     }
 
 
+    @RequestMapping(value="pagingdisplay/{pagesize}/{pagenum}")
+    public ModelAndView getListPagingDisplay(@PathVariable(value="pagesize",required=false) int pageSize,@PathVariable(value="pagenum",required=false) int pagenum, ModelMap model) {
+        if(pagenum<1){
+            pagenum=1;
+        }
+
+        List<Issue> list=issueDao.getListPagingDisplay((pagenum-1)*pageSize,pageSize);
+
+        model.addAttribute("pagenum",pagenum);
+        model.addAttribute("pagesize",pageSize);
+        model.addAttribute("list",list);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("findissue/pagingdisplay");
+        return mv;
+    }
 
 }

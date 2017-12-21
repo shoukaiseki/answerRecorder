@@ -75,4 +75,9 @@
   <select id="findIssueByLike" resultMap="RelationshipResultMap"  parameterType="java.lang.String">
     select * from answer.issue where question like CONCAT('%',#{keyword},'%')
   </select>
+
+  <select id="getListPagingDisplay" resultMap="RelationshipResultMap">
+    select * from answer.issue  order by createdate  limit #{pagenum,jdbcType=INTEGER},#{pagesize,jdbcType=INTEGER}
+  </select>
+
 </mapper>
