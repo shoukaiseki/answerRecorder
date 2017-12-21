@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!--时间格式化
 
 -->
@@ -15,6 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>  
     <base href="<%=basePath%>">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+	<!--手机打开字体小,加上这句即可-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>问题搜索</title>
 	<!--
 	<script type="text/javascript" src="<%=basePath%>webclient/javascript/iscroll/iscroll.js"></script>
@@ -24,7 +27,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=basePath%>webclient/javascript/jquerymobile/jquery.mobile-1.4.5.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>webclient/javascript/jquerymobile/jquery.mobile-1.4.5.css">  
 
-
+	<style type="text/css">
+		/**列表li文字自动换行**/
+		 .ui-listview > .ui-li-static {
+			white-space:normal;
+		}
+	</style>
 </head>  
 <body>  
 <!--
@@ -42,9 +50,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 		-->
 		<div data-role="collapsible">
-			<h4>搜索说明</h4>
+			<h1 sytle="white-space:normal:nowrap">搜索说明</h1>
 			<ul data-role="listview">
-			  <li>支持模糊搜索,但是搜索的关键字顺序必须与题目一致</li>
+			  <li >支持模糊搜索,但是搜索的关键字顺序必须与题目一致</li>
 			  <li>例如搜索问题(以下哪个属于病理性钙化的光镜学特点)</li>
 			  <li>可以输入(哪个 病理 光镜学)进行搜索(搜索时不含括号)<button class="ui-btn  ui-corner-all" onclick="testfind01()" id="testfind01">测试搜索</button></li>
 			  <li>但是可以输入(病理 哪个 光镜学)不按顺序进行搜索是无效的<button class="ui-btn  ui-corner-all" onclick="testfind02()" id="testfind02">测试搜索</button></li>
@@ -67,6 +75,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </table>
 			</div>
 		</form>
+		<c:if test="${list!= null || fn:length(list) > 0}">
+			<p>为您搜索到记录数${fn:length(list)}条</p>
+		</c:if>
 		<c:forEach items="${list}" var="issue" varStatus="issueStatus">
 			<h2>
 				  <table width="100%">
